@@ -7,7 +7,7 @@ $(error VERSION variable is not set. Use -e VERSION=XYZ to proceed.)
 endif
 
 
-REPO ?= freelawproject/bigcases2
+REPO ?= cweider2/bigcases2
 
 # The various tags available
 DOCKER_TAG_PROD = $(VERSION)-web-prod
