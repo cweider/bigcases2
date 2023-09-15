@@ -103,8 +103,6 @@ FROM python-base as web-dev
 CMD python /opt/bigcases2/manage.py migrate  && \
     python /opt/bigcases2/manage.py runserver 0.0.0.0:8000
 
-WORKDIR /opt/bigcases2
-
 #freelawproject/bigcases2:latest-web-prod
 FROM python-base as web-prod
 
