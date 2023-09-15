@@ -3,16 +3,14 @@ ARG BUILD_ENV=prod
 FROM python:3.11-slim as build-base
 
 RUN apt-get update --option "Acquire::Retries=3" --quiet=2 && \
-    apt-get install -y build-essential curl &&\
-    curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install \
         --no-install-recommends \
         --assume-yes \
         --quiet=2 \
+        # So we can use Python-slim
+        build-essential gcc python3-dev \
         # So we can use django-tailwind
         nodejs \
-        # So we can use Python-slim
-        gcc python3-dev \
         # So postgres can compile and users can use dbshell
         libpq-dev postgresql-client \
         # For installing poetry and git-based deps
